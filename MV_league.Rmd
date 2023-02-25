@@ -1,7 +1,7 @@
 ---
 title: "The MV League"
 subtitle: "A study of a fantasy league statistics"
-author: "Maria Ceraolo"
+author: "Maria -"
 date: "`r Sys.Date()`"
 output: rmdformats::robobook
 figcaption: yes
@@ -152,9 +152,6 @@ Analysing the data at our disposal, there would seem to be a certain correlation
 <p>
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
-
-    library(ggplot2)
-library(wesanderson)
 
 MVteams.short.df= read.csv("MV_matrix.csv", sep = ";")
 
