@@ -1,0 +1,321 @@
+---
+title: "The MV League"
+subtitle: "A study of a fantasy league statistics"
+author: "Maria Ceraolo"
+date: "`r Sys.Date()`"
+output: rmdformats::robobook
+figcaption: yes
+---
+
+```{=html}
+<style>
+body {
+text-align: justify}
+</style>
+```
+```{r Libraries, echo=FALSE, message=FALSE}
+# LOAD libraries
+
+library(ggplot2)
+library(rworldmap)
+library(leaflet)
+library(ggmap)
+library(rgdal)
+library(wesanderson)
+library(geojson)
+library(geosphere)
+library(plotrix)
+library(plotly)
+library(ggridges)
+library(DT)
+
+```
+
+# **Introduction**
+
+## **What is Fantasy Football?**
+
+Fantasy Football (or, *Fantacalcio*) was invented by Riccardo Albini[^1] who, inspired by a US pastime based on baseball (*Fantasy Baseball*[^2]), published it for the first time in Italy in 1990 through Edizioni Studio Vit.
+
+[^1]: [["How I invented Fantasy football": interview with Riccardo Albini]{.smallcaps}](https://web.archive.org/web/20140811011906/http://www.fantagazzetta.com/esclusive-fg/come-inventai-il-fanta-calcio-intervista-a-riccardo-albini-165805)
+
+[^2]: [[Fantasy Baseball]{.smallcaps}](https://en.wikipedia.org/wiki/Fantasy_baseball)
+
+<p>
+
+A big contribution to the popularity of the game was made by the collaboration with the newspaper *"La Gazzetta dello Sport"*, which, starting in the summer of 1994, hosted the game on its pages, providing the votes to calculate the scores of the fantasy teams. <br>The initiative was a great editorial success: initially about 10.000 participants were supposed to take part, but in the course of the year, 70.000 subscribers were reached. Following the success of the paper version, the same Italian newspaper created the digital platform *Magic*, which in 2022 became *Fantacampionato*.
+
+<p>
+
+Fantasy football is widespread on the web in all its variants. In Italy, *"**Fantacalcio**"* is a registered trademark owned since 2017 by Quadronica Srl, owner of the *Fantagazzetta* platform.<br>In Italy some digital platforms for playing fantasy football are *Fantacampionato*, *Leghe Fantacalcio* and *Fantapazz*.
+
+<p>
+
+<p>
+
+The *MV League* takes place within the *Fantacalcio* platform. The site was founded under the name *Fantagazzetta* in 1999 and over the years has become one of the most widely used of all fantasy football league management portals, registering around 1.800.000 registered users and 500.000 teams registered in the various leagues in 2016.[^3] Subsequently, in 2015, the official *FG Leagues* app was created for Android and IOS devices.
+
+[^3]: [[Fantagazzetta, a newspaper born for fun: interview with director Nino Ragosta]{.smallcaps}](https://www.ilmessaggero.it/video/sport/fantagazzetta_una_testata_nata_per_gioco_intervista_al_direttore_nino_ragosta-1544910.html)
+
+In 2019, the gaming platform and editorial portal switched to *Leghe Fantacalcio* and *Fantacalcio.it*, respectively[^4].
+
+[^4]: [[The Italian fantasy coaches return home: from Thursday 20 we are Fantacalcio.it and Leghe Fantacalcio]{.smallcaps}](https://www-fantacalcio-it.translate.goog/news/redazionali/20_06_2019/i-fantallenatori-italiani-tornano-a-casa-da-oggi-siamo-fantacalcioit-e-leghe-fantacalcio-369304/?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+
+## **How do you play it?**
+
+Fantasy Football offers two game modes, *classic* and *Mantra*. The first takes up the official regulation of fantasy football , while the second is exclusive to the *Fantacalcio* portal.
+
+<p>
+
+### **Classic Mode**
+
+The classic mode of Fantasy Football can be traced back to the historical regulation of the game. The competition is created by an administrator who is responsible for managing all aspects of the league, including trading, opening and closing transfer market sessions and calculating scores. The calendar of the competition provides for the possibility of organizing a tournament with direct clashes, as well as dividing the participating teams into several groups. Furthermore, the One against all ("*Grand prix*") and *Formula One* (like the previous one but with the attribution of scores based on the weekly positioning of the various teams) are also implemented.[^5]
+
+[^5]: [[Fantacalcio Official Rules]{.smallcaps}](https://www-fantacalcio-it.translate.goog/regolamenti/fantacalcio?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+
+<p>
+
+### **Mantra mode**
+
+Introduced in 2012-2013, the Mantra mode aims to bring the gaming and team management experience to a higher level. Although the dynamics and regulation remain similar to the classic mode, through this new method of play a specific role is assigned to each player, thus making it more difficult to build the initial squad and choose the starting lineup to insert on a weekly basis. In addition to the goalkeeper, the other canonical roles (defender, midfielder and attacker) in the mantra mode are differentiated according to the specific position, with the addition of a department on the back line, made up of attacking midfielders and wingers.[^6]
+
+[^6]: [[Fantacalcio Mantra Official Rules]{.smallcaps}](https://www-fantacalcio-it.translate.goog/regolamenti/sistema-mantra?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+
+# **Presenting the MV League**
+
+## **About the league**
+
+The MV League was born in August 2022 as a team-building experiment among a group of small European non-profit organisations that were part of an informal network dedicated to promoting social inclusion in Europe through shared projects and initiatives. 
+
+Some of the members of the different organisations already knew each other and interacted informally with at least one member of another organisation. They realised, however, that despite previous knowledge, in order for the interaction between the different members of the organisations to take place in a horizontal and collaborative manner, it was necessary for everyone to know everyone and feel comfortable communicating informally without intermediaries.
+
+This is why it was decided to organise a fantasy football league and use a game-based approach to foster acquaintance between the different members, so as to improve communication and facilitate the day-to-day work of the organisations.
+
+At this point in the game (around the halfway point), the informal atmosphere created by the "*game moment*" has almost completely transferred to the "*work moment*", and there is a marked improvement in communication between the different members of the different organisations, who collaborate with each other independently as if they were part of a single organisation.
+
+## **Overview of the league**
+
+The MV League includes 8 teams, each of which is managed by a fantasy coach based in different parts of Eurasia.<br> Precisely for this reason, the classic fantasy football auction for the formation of the rosters (which is usually held in-person and assigns the players to the highest bid) was held online with a *"sealed envelope"* mode[^7].<br> Each fantasy coaches was given 500 FantaMilions to complete a squad of 25 players (3 goalkeepers, 6 defenders, 8 midfielders and 6 forwards).<br><br> The same modality was used for the repair auction in February 2023, in which fantasy coaches could sell or trade some of their players with the aim of improving their team.<br> At the end of the February market session, the MV League situation was as shown in the map below. <br>
+
+[^7]: [[Sealed envelopes market]{.smallcaps}](https://leghe-fantacalcio-it.translate.goog/guide-leghe-fantacalcio/gestione-mercato/crea-un-mercato-a-buste-97?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+    source("MultiLayer_map.R", local = knitr::knit_global())
+
+    m
+
+```
+
+## **Facts & Figures**
+
+Already from the map you can see that most of the players belong:
+
+-   to the top clubs of Serie A;
+
+-   to the fantasy coaches' favourite club[^8];
+
+[^8]: [[Inter (2 coaches), Milan (1 coach), Lazio(1 coach), Juventus (1 coach), Sassuolo (1 coach), *Taranto* (1 coach), *Stade Rennais FC* (1 coach).]{.smallcaps}](https://docs.google.com/spreadsheets/d/1BpIHmFCkqJZeq-zgz0wdnMMZUd_w360RivNlLVJHEp0/edit?usp=sharing)
+
+<br>The data analysis, shown in the pie chart below, confirms what is visible from the map.<br>
+
+```{r echo=FALSE, message=FALSE}
+    source("PIECHART.R", local = knitr::knit_global())
+    
+    
+```
+
+In fact, the most represented teams are *Inter*, *Juventus* and *Napoli*, followed by *Milan*, *Atalanta*, *Fiorentina*, *Lazio* and *Udinese*.<br> The first three occupy the 2, 7 and 1 position in the Serie A ranking. The second ones, on the other hand, occupy the 4, 6, 5 and 10 position[^9].<br> The high presence of players from *Fiorentina*, despite the fact that the team now occupies only 14th place in Serie A can be explained by:
+
+[^9]: [Serie A Standings at the end of 23rd Match Day](https://www.legaseriea.it/it/serie-a/classifica)
+
+-   the players chosen, most of whom have - in the past - been part of one of the fantasy coaches' favourite teams;
+
+-   Fiorentina's excellent performance in the 2022-2023 season.
+
+As far as *Udinese* is concerned, on the other hand, the presence of such a high number of players can be linked to the enthusiasm generated by the team's excellent performance at the time when the first auction took place (September 2022), with the Championship already underway.<br><br> It is likely, in fact, that the need to build a good team with a limited budget led fantasy coaches to buy players for their team who at the time of the auction had a good grade point average, such as those of *Udinese*.<br><br> The same considerations were made during the reparation auction in February, during which the main market movements concerned the sale of players who would no longer play (due to transfer to a foreign league or due to injury) or who had proved to be bad investments from a price/performance point of view. The purchases therefore concerned new arrivals in the Serie A, or promising players from the smaller teams.<br><br>At the end of the second auction, therefore, the teams had the following purchase and market values:<br>
+
+```{r echo=FALSE, message=FALSE, paged.print=FALSE}
+ source("teamsvalue.R", local = knitr::knit_global())
+
+datatable(TeamsValue, rownames = F,colnames = c("Team", "Purchase value", "Market Value"), filter="none",autoHideNavigation=TRUE, 
+          options = list(pageLength = 8) )
+
+  
+```
+
+*Does the value of the squad (determined by the sum of the single values of each player) affect the team's performance?*
+
+<p>
+
+Analysing the data at our disposal, there would seem to be a certain correlation between the value of the squad and its performance, as can be seen in the graph below.
+
+<p>
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    library(ggplot2)
+library(wesanderson)
+
+MVteams.short.df= read.csv("MV_matrix.csv", sep = ";")
+
+
+matrixdata = as.matrix(MVteams.short.df)
+
+barplot(matrixdata,
+        cex.axis=0.6,
+        col=c("lightgreen", "orange","brown", "lightblue", "violet", "darkgreen"), 
+        width = c(4,4,4,4,4,5),
+        border="black", 
+        beside=T, 
+        xlab="MV Teams")
+
+legend("topright",ncol=2,
+       c("Won", "Draw", "Lost", "Goals Scored",
+       "Goals Against", "Points"),
+       cex=0.6,
+       x.intersp = 0.3,
+       fill =c("lightgreen", "orange","brown", "lightblue", "violet", "darkgreen"), 
+       border = "black",
+       bty = "n")
+
+##DEVI INVERTIRE X E Y NELLA MATRICE COSì CHE TI VIENE FUORI PER TEAM E NON PER PUNTI
+
+```
+
+The graph, however, shows also certain correlation between goals scored, goals conceded ("Goals Against") and points in the standings.<br> Indeed, as in football, the victory of the fantasy match - worth three points - is given to the team that scores the most goals. <br><br> Now we will see what this means.
+
+# **How is each team doing?**
+
+In the MV League, the first goal is scored by reaching a minimum of 66 points, the second by +6 (72) and so on. <br><br> If the score is the sum of the individual votes from the players (+ bonuses), it is clear that it is not only important to have a high-value squad but also to field - from time to time - the best formation.<br><br> To this end, a good example is the case of the two clubs *Hellas Coteca* and *Krampouezh Klub*.
+
+<p>
+
+```{r echo=FALSE, message=FALSE}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p8)
+
+```
+
+<p>
+
+As can be seen from the graph, in fact, although in 3rd place in terms of squad value, the *Krampouezh Klub* team ranks 8th in the League because they conceded more goals than they scored and, therefore, lost more matches.
+
+Let us now look in more detail at the performance of each team.
+
+<p>
+
+## **BSAcquedotto**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *BSAcquedotto* team ranked 4th. <br><br>The best performing player for the team was *Zaccagni (Lazio)*, a miedfielder, with an average score (*Fm*) of 7.82 for 20 matches played (in the Serie A). The player Ngonge (Hellas Verona) is not taken in consideration as it joined the team in February and did not contribute to its ranking. <br>The best performing area of the team is the midfield. <br>The highest average score is 7.82, while the lowest is 4.44.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p)
+
+```
+
+## **Team Shark**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Team Shark* team ranked 3rd. <br><br>The best performing player for the team was *Dia (Salernitana)*, a forward, with an average score (*Fm*) of 7.48 for 21 matches played (in the Serie A). The worst performing player is *Rui Patricio (Roma)*, a goalkeeper, with an average score of 5.11 for 20 matches played. <br>The best performing area of the team is the one of forwards.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p1)
+
+```
+
+## **Absentia**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Absentia* team ranked 7th. <br><br>The best performing player for the team was the forward *Vlahovic (Juventus)* with an average score (*Fm*) of 8.72 for 18 matches played (in the Serie A). The worst performing player is *Gatti (Juventus)*, a defender, with an average score of 5.67 for 6 matches played. <br>Lower ranking players were not taken into account as they joined the team in February. <br>The best performing area of the team is the one of forwards.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p6)
+
+```
+
+## **La Ciurma Alcolica**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *La Ciurma Alcolica* team ranked 1st. <br><br>The best performing player for the team was the forward *Osimhen (Napoli)* with an average score (*Fm*) of 8.86 for 18 matches played (in the Serie A). The worst performing player is *Sepe (Salernitana)*, a goalkeeper, with an average score of 5.06 for 16 matches played. <br>The best performing area of the team is the one of midfielders, although it is important to notice that the great majority of the player (21 out of 25) has an average score of at least 6 (*"passing grade"*) and none with an average score lower than 5.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p4)
+
+```
+
+## **Pregiudicati di Caltanissetta**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Pregiudicati di Caltanissetta* team ranked 2nd. <br><br>The best performing player for the team was the forward *Lookman (Atalanta)* with an average score (*Fm*) of 8.50 for 21 matches played (in the Serie A). The worst performing player is *Terracciano (Fiorentina)*, a goalkeeper, with an average score of 4.58 for 19 matches played. Also in this case, lower scores were not taken into account as the player have just joined the team. <br>The best performing area of the team is the one of forwards, with an average score of 7.29.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p5)
+
+```
+
+## **Team Vision**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Team Vision* team ranked 6th. <br><br>The best performing player for the team was *Boga (Atalanta)*, a forward with an average score (*Fm*) of 7.71 for 7 matches played (in the Serie A). The worst performing player is *Milinkovic-Savic (Torino)*, a goalkeeper, with an average score of 5.07 for 22 matches played. <br>Lower and higher ranking players were not taken into account as they joined the team in February. <br>The best performing area of the team is the one of forwards.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p2)
+
+```
+
+## **Krampouezh Klub**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Krampouezh Klub* team ranked 8th. <br><br>The best performing player for the team was the forward *Arnautovic (Bologna)* with an average score (*Fm*) of 7.83 for 7 matches played (in the Serie A). The worst performing player is *Tatarusanu (Milan)*, a goalkeeper, with an average score of 4.50 for 15 matches played. <br>Lower ranking players were not taken into account as they joined the team in February. <br>The best performing area of the team is the one of forwards.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p7)
+
+```
+
+## **Hellas Coteca**
+
+At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Hellas Coteca* team ranked 5th. <br><br>The best performing player for the team was the forward *Dybala (Roma)* with an average score (*Fm*) of 8.59 for 16 matches played (in the Serie A). The worst performing player is the goalkeeper *Dragowski (Spezia)* with an average score of 4.42 for 20 matches played. Also in this case, lower scores were not taken into account as the player have just joined the team. <br>The best performing area of the team is the one of forwards.
+
+```{r echo=FALSE, message=FALSE, out.width="100%"}
+
+    source("Connect Players and Teams.R", local = knitr::knit_global())
+
+    ggplotly(p3)
+
+```
+
+# **Conclusion**
+
+At the end of this analysis we can state that the correlation between the value of a roster in the MV League and its overall performance, although it exists, is minimal.<br> In determining the overall performance of the different teams, and thus their position in the league table, the performance of a player in the MV League and the fantasy coach's ability to prepare the line-up to be deployed mainly intervene: this depends on personal taste, information in the player's possession (e.g. regarding injured players and players who will play the match as starters).<br><br> Other factors that affect the outcome of a match, and thus the performance of the team and its position in the league table, are:
+
+1.  the overall performance of the Serie A team to which a player belongs: in fact, generally, players of teams that win the Serie A match receive a higher average grade than those of teams that lose the match;
+
+2.  the level of complexity of the Serie A match a player is involved in: a player from a mid-ranked Serie A club, for example, might receive a better grade in a match against a lower-ranked team and a lower grade when involved in a match with a higher-ranked team;
+
+In general, given what has been said so far, better performances are observed in the MV League in those teams that:
+
+-   have more players from the top Serie A clubs in their squads;
+
+-   have in their squad a greater number of players with an average score of 7.5 and above;
+
+-   adapt their line-up from time to time with respect to Serie A matches (e.g. by not fielding a goalkeeper and a striker who play against each other on that Match Day in Serie A). <br>
+
+
