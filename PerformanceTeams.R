@@ -2,15 +2,7 @@
 #  LOAD libraries
 
 library(ggplot2)
-library(rworldmap)
-library(leaflet)
-library(ggmap)
-library(rgdal)
-library(wesanderson)
-library(geojson)
-library(geosphere)
 library(plotly)
-library(ggridges)
 
 #READ DF------------------------------------------------------------------------
 #    READ the dataframes
@@ -34,6 +26,7 @@ Mv=c(Mediav[1:200])
 
 Teams=players.df[,"team_name"]
 MVTeam=c(Teams[1:200])
+
 
 #BSAcquedotto--------
 
