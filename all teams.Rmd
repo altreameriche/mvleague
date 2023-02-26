@@ -1,0 +1,31 @@
+---
+title: 
+author: 
+date: 
+output:
+  rmarkdown::html_document:
+    theme: lumen
+---
+
+```{r Libraries, echo=FALSE, message=FALSE}
+# LOAD libraries
+
+library(DT)
+```
+<br>
+
+### **Overview of MV players**
+<br><br>
+
+
+```{r, echo=FALSE, message=FALSE}
+ source("tabletry.R", local = knitr::knit_global())
+
+datatable(ALLplayers, rownames = T, filter="bottom", 
+          colnames = c("Team", "Role", "Player", "National Team", "Serie A team",
+                       "Matches played","Average score (Fm)", "GS", "GA",
+                       "Penalty saved", "Penalty kicked", "P+", "P-", "Assist", "Cautions", "Red cards", "Autogoal"),
+          options = list(pageLength = 15, scrollX=T) )
+
+```
+
