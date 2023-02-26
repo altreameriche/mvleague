@@ -34,9 +34,9 @@ library(DT)
 
 Fantasy Football (or, *Fantacalcio*) was invented by Riccardo Albini[^1] who, inspired by a US pastime based on baseball (*Fantasy Baseball*[^2]), published it for the first time in Italy in 1990 through Edizioni Studio Vit.
 
-[^1]: [["How I invented Fantasy football": interview with Riccardo Albini]{.smallcaps}](https://web.archive.org/web/20140811011906/http://www.fantagazzetta.com/esclusive-fg/come-inventai-il-fanta-calcio-intervista-a-riccardo-albini-165805)
+[^1]: [["How I invented Fantasy football": interview with Riccardo Albini]{.smallcaps}](https://web.archive.org/web/20140811011906/http://www.fantagazzetta.com/esclusive-fg/come-inventai-il-fanta-calcio-intervista-a-riccardo-albini-165805){target="_blank"}
 
-[^2]: [[Fantasy Baseball]{.smallcaps}](https://en.wikipedia.org/wiki/Fantasy_baseball)
+[^2]: [[Fantasy Baseball]{.smallcaps}](https://en.wikipedia.org/wiki/Fantasy_baseball){target="_blank"}
 
 <p>
 
@@ -52,11 +52,11 @@ Fantasy football is widespread on the web in all its variants. In Italy, *"**Fan
 
 The *MV League* takes place within the *Fantacalcio* platform. The site was founded under the name *Fantagazzetta* in 1999 and over the years has become one of the most widely used of all fantasy football league management portals, registering around 1.800.000 registered users and 500.000 teams registered in the various leagues in 2016.[^3] Subsequently, in 2015, the official *Leghe* *FC* app was created for Android and IOS devices.
 
-[^3]: [[Fantagazzetta, a newspaper born for fun: interview with director Nino Ragosta]{.smallcaps}](https://www.ilmessaggero.it/video/sport/fantagazzetta_una_testata_nata_per_gioco_intervista_al_direttore_nino_ragosta-1544910.html)
+[^3]: [[Fantagazzetta, a newspaper born for fun: interview with director Nino Ragosta]{.smallcaps}](https://www.ilmessaggero.it/video/sport/fantagazzetta_una_testata_nata_per_gioco_intervista_al_direttore_nino_ragosta-1544910.html){target="_blank"}
 
 In 2019, the gaming platform and editorial portal switched to *Leghe Fantacalcio* and *Fantacalcio.it*, respectively[^4].
 
-[^4]: [[The Italian fantasy coaches return home: from Thursday 20 we are Fantacalcio.it and Leghe Fantacalcio]{.smallcaps}](https://www-fantacalcio-it.translate.goog/news/redazionali/20_06_2019/i-fantallenatori-italiani-tornano-a-casa-da-oggi-siamo-fantacalcioit-e-leghe-fantacalcio-369304/?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+[^4]: [[The Italian fantasy coaches return home: from Thursday 20 we are Fantacalcio.it and Leghe Fantacalcio]{.smallcaps}](https://www-fantacalcio-it.translate.goog/news/redazionali/20_06_2019/i-fantallenatori-italiani-tornano-a-casa-da-oggi-siamo-fantacalcioit-e-leghe-fantacalcio-369304/?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp){target="_blank"}
 
 ## **How do you play it?**
 
@@ -69,7 +69,7 @@ Fantasy Football offers two game modes, *Classic* and *Mantra*. The first takes 
 The *Classic mode* of Fantasy Football can be traced back to the historical regulation of the game. The competition is created by an *administrator* who is responsible for managing all aspects of the league, including trading, opening and closing transfer market sessions and calculating scores.\
 The calendar of the competition provides for the possibility of organizing a tournament with direct clashes, as well as dividing the participating teams into several groups. Furthermore, the One against all ("*Grand prix*") and *Formula One* (like the previous one but with the attribution of scores based on the weekly positioning of the various teams) can also be implemented.[^5]
 
-[^5]: [[Fantacalcio Official Rules]{.smallcaps}](https://www-fantacalcio-it.translate.goog/regolamenti/fantacalcio?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+[^5]: [[Fantacalcio Official Rules]{.smallcaps}](https://www-fantacalcio-it.translate.goog/regolamenti/fantacalcio?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp){target="_blank"}
 
 <p>
 
@@ -77,7 +77,7 @@ The calendar of the competition provides for the possibility of organizing a tou
 
 Introduced in 2012-2013, the *Mantra mode* aims to bring the gaming and team management experience to a higher level. Although the dynamics and regulation remain similar to the classic mode, through this new method of play a *specific role* is assigned to each player, thus making it more difficult to build the initial squad and choose the starting lineup to insert on a weekly basis. In addition to the goalkeeper, the other canonical roles (defender, midfielder and attacker) in the mantra mode are differentiated according to the specific position, with the addition of a department on the back line, made up of attacking midfielders and wingers.[^6]
 
-[^6]: [[Fantacalcio Mantra Official Rules]{.smallcaps}](https://www-fantacalcio-it.translate.goog/regolamenti/sistema-mantra?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+[^6]: [[Fantacalcio Mantra Official Rules]{.smallcaps}](https://www-fantacalcio-it.translate.goog/regolamenti/sistema-mantra?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp){target="_blank"}
 
 # **Presenting the MV League**
 
@@ -95,7 +95,7 @@ At this point in the game (around the halfway point), the informal atmosphere cr
 
 The MV League includes 8 teams, each of which is managed by a fantasy coach based in different parts of Eurasia.<br> Precisely for this reason, the classic fantasy football auction for the formation of the rosters (which is usually held in-person and assigns the players to the highest bid) was held online with a *"sealed envelope"* mode[^7].<br> Each fantasy coaches was given 500 FantaMilions to complete a squad of 25 players (3 goalkeepers, 8 defenders, 8 midfielders and 6 forwards).<br><br> The same modality was used for the repair auction in February 2023, in which fantasy coaches could sell or trade some of their players with the aim of improving their team.<br> At the end of the February market session, the MV League situation was as shown in the map below. <br>
 
-[^7]: [[Sealed envelopes market]{.smallcaps}](https://leghe-fantacalcio-it.translate.goog/guide-leghe-fantacalcio/gestione-mercato/crea-un-mercato-a-buste-97?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp)
+[^7]: [[Sealed envelopes market]{.smallcaps}](https://leghe-fantacalcio-it.translate.goog/guide-leghe-fantacalcio/gestione-mercato/crea-un-mercato-a-buste-97?_x_tr_sl=it&_x_tr_tl=en&_x_tr_hl=it&_x_tr_pto=wapp){target="_blank"}
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
     source("MultiLayer_map.R", local = knitr::knit_global())
@@ -112,7 +112,7 @@ Already from the map you can see that most of the players belong:
 
 -   to the fantasy coaches' favourite club[^8];
 
-[^8]: [[Inter (2 coaches), Milan (1 coach), Lazio(1 coach), Juventus (1 coach), Sassuolo (1 coach), *Taranto* (1 coach), *Stade Rennais FC* (1 coach).]{.smallcaps}](https://docs.google.com/spreadsheets/d/1BpIHmFCkqJZeq-zgz0wdnMMZUd_w360RivNlLVJHEp0/edit?usp=sharing)
+[^8]: [[Inter (2 coaches), Milan (1 coach), Lazio(1 coach), Juventus (1 coach), Sassuolo (1 coach), *Taranto* (1 coach), *Stade Rennais FC* (1 coach).]{.smallcaps}](https://docs.google.com/spreadsheets/d/1BpIHmFCkqJZeq-zgz0wdnMMZUd_w360RivNlLVJHEp0/edit?usp=sharing){target="_blank"}
 
 <br>The data analysis, shown in the pie chart below, confirms what is visible from the map.<br>
 
@@ -124,7 +124,7 @@ Already from the map you can see that most of the players belong:
 
 In fact, the most represented teams are *Inter*, *Juventus* and *Napoli*, followed by *Milan*, *Atalanta*, *Fiorentina*, *Lazio* and *Udinese*.<br> The first three occupy the 2, 7 and 1 position in the Serie A ranking. The second ones, on the other hand, occupy the 4, 6, 5 and 10 position[^9].<br> The high presence of players from *Fiorentina*, despite the fact that the team now occupies only 14th place in Serie A can be explained by:
 
-[^9]: [Serie A Standings at the end of 23rd Match Day](https://www.legaseriea.it/it/serie-a/classifica)
+[^9]: [Serie A Standings at the end of 23rd Match Day](https://www.legaseriea.it/it/serie-a/classifica){target="_blank"}
 
 -   the players chosen, most of whom have - in the past - been part of one of the fantasy coaches' favourite teams;
 
