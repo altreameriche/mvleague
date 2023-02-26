@@ -3,7 +3,6 @@ library(wesanderson)
 
 MVteams.short.df= read.csv("MV_matrix.csv", sep = ";")
 
-
 matrixdata = as.matrix(MVteams.short.df)
 
 barplot(matrixdata,
