@@ -27,6 +27,7 @@ Mv=c(Mediav[1:200])
 Teams=players.df[,"team_name"]
 MVTeam=c(Teams[1:200])
 
+#Plotting more than one so that each can be used separately in the Rmd
 
 #BSAcquedotto--------
 
