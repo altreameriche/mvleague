@@ -1,7 +1,7 @@
 ---
 title: "The MV League"
 subtitle: "A study of a fantasy league statistics"
-author: "Maria Ceraolo"
+author: "-----"
 date: "`r Sys.Date()`"
 output: rmdformats::robobook
 figcaption: yes
@@ -17,16 +17,13 @@ text-align: justify}
 # LOAD libraries
 
 library(ggplot2)
-library(rworldmap)
 library(leaflet)
 library(ggmap)
 library(rgdal)
-library(wesanderson)
 library(geojson)
 library(geosphere)
 library(plotrix)
 library(plotly)
-library(ggridges)
 library(DT)
 
 ```
@@ -155,7 +152,6 @@ Analysing the data at our disposal, there would seem to be a certain correlation
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
     library(ggplot2)
-library(wesanderson)
 
 MVteams.short.df= read.csv("MV_matrix.csv", sep = ";")
 
@@ -193,7 +189,7 @@ In the MV League, the first goal is scored by reaching a minimum of 66 points, t
 
 ```{r echo=FALSE, message=FALSE}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p8)
 
@@ -213,7 +209,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *BSAcque
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p)
 
@@ -225,7 +221,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Team Sh
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p1)
 
@@ -237,7 +233,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Absenti
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p6)
 
@@ -249,7 +245,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *La Ciur
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p4)
 
@@ -261,7 +257,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Pregiud
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p5)
 
@@ -273,7 +269,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Team Vi
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p2)
 
@@ -285,7 +281,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Krampou
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p7)
 
@@ -297,7 +293,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Hellas 
 
 ```{r echo=FALSE, message=FALSE, out.width="100%"}
 
-    source("Connect Players and Teams.R", local = knitr::knit_global())
+    source("PerformanceTeams.R", local = knitr::knit_global())
 
     ggplotly(p3)
 
