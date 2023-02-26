@@ -1,7 +1,7 @@
 ---
-title: 
-author: 
-date: 
+title: #removed so it doesn't shown in the html doc
+author: #removed so it doesn't shown in the html doc
+date: #removed so it doesn't shown in the html doc
 output:
   rmarkdown::html_document:
     theme: lumen
@@ -19,7 +19,7 @@ library(DT)
 
 
 ```{r, echo=FALSE, message=FALSE}
- source("tabletry.R", local = knitr::knit_global())
+ source("allplayers.R", local = knitr::knit_global())
 
 datatable(ALLplayers, rownames = T, filter="bottom", 
           colnames = c("Team", "Role", "Player", "National Team", "Serie A team",
