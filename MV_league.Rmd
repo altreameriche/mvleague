@@ -301,7 +301,7 @@ At the end of the 16th Match Day of MV League (22nd MD of Serie A), the *Hellas 
 
 ## **MV Players**
 
-More details about the individual performance of each player in the MV League, as well as on each MV team, have been made available [here](https://rpubs.com/altreameriche/mvplayers).
+More details about the individual performance of each player in the MV League, as well as on each MV team, have been made available [here](https://rpubs.com/altreameriche/mvplayers){target="_blank"}.
 
 
 # **Conclusion**
