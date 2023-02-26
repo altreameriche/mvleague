@@ -1,5 +1,4 @@
 library(ggplot2)
-library(wesanderson)
 
 MVteams.short.df= read.csv("MV_matrix.csv", sep = ";")
 
